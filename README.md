@@ -1,5 +1,5 @@
-# <Password_Generator>
-# <by_James_Fidlin>
+# Password_Generator
+# by_James_Fidlin
 
 <div id="top"></div>
 
