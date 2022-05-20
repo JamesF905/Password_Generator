@@ -1,12 +1,61 @@
-# <James_Fidlin_Portfolio>
+# <Password_Generator>
+# <by_James_Fidlin>
 
-## Description
+<div id="top"></div>
 
-This is the first attempt at building a professional looking web page, based on the concepts we learned in Modules 1-3. This project therefore demonstartes some of those new found concepts including but not limited to:
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-- Semantic Html
-- Advanced CSS
-- Javascript 
-- Responsive Design (Particularly the use of FLEX, and @Media querys)
 
-This file as well as all the other files in this repo will be updated in further lessons.
+
+<br />
+<div align="center">
+  <a href="https://github.com/JamesF905/Password_Generator">
+    <img src="https://media.istockphoto.com/photos/password-input-field-with-padlock-picture-id808424876" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Password Generator</h3>
+
+  <p align="center">
+    <a href="CHANGE TO LIVE LINK"><strong>CHANGE TO LIVE LINK</strong></a>
+    <br />
+    <br />
+    <a href="https://www.linkedin.com/in/james-fidlin-98853a239/">linkedin</a>
+    ·
+    <a href="www.gmail.com">Contact</a>
+  </p>
+</div>
+
+## About The Project
+
+[![Password Generator][product-screenshot]](CHANGE TO LIVE LINK)
+
+This module's Challenge requires me to create an application that an employee can use to generate a random password based on criteria they've selected. This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript. It will have a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes. I will use concepts learned in this weeks module to help complete the task.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+### Built With
+
+* [Javascript](https://www.javascript.com/)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Git Hub](https://github.com/)
+* [Git Bash](https://git-scm.com/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+## Contact
+
+James Fidlin - gmail.com
+
+Project Link: [https://github.com/JamesF905/Password_Generator](https://github.com/JamesF905/Password_Generator)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/james-fidlin-98853a239/
+[product-screenshot]: images/Project_Screenshot.png

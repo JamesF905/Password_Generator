@@ -1,68 +1,65 @@
-// Set the Criteria Values as global variables
-let lowercase = "abcdefghijklmnopqrstuvwxyz";
-let uppercase = lowercase.toUpperCase();
-let numbers = "0123456789";
-let spec = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+let button = document.getElementById('generate'); //Store the main generate button in a global variable
+let status_title = document.querySelector('h2'); //Store the <H2> tag in a global variable
+let possible_characters = ""; //Initialize the possible_characters string
+let criteria_selection_status = false;  //Initialize the criteria_selection_status
 
-// Assignment Code
-let generateBtn = document.querySelector("#generate");
+//set the characterTypes array
+let characterTypes = [
+    ["Lowercase Letters", "abcdefghijklmnopqrstuvwxyz"],
+    ["Uppercase Letters", "ABCDEFGHIJKLMNOPQRSTUVWXYZ"],
+    ["Numbers", "0123456789"],
+    ["Special Characters", "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"]
+];
 
-// Gather password criteria from the user, then write the password to the #password input
-function writePassword() {
-  let char_length = prompt("First, select how many characters do you want your Password to have.\n\nPlease choose a number between 8 and 128"); 
-  alert("Next, you must select at least one of the following character types to include in your password.\n\nFor each character type, Click \"OK\" for Yes, and \"Cancel\" for No");
-  let l_Case = confirm("Do you want to include Lowercase Characters?");
-  let u_Case = confirm("Do you want to include Uppercase Characters?");
-  let numeric = confirm("Do you want to include Numbers?");
-  let special = confirm("Do you want to include Special Characters?");
-  
-
-  //Error handling. Message then return on error.
-
-  if (char_length < 8 || char_length > 128){
-    alert("Your password must be between 8 and 128 characters in length, please try again.");
-    return;
+/* This function runs a foreach loop on the characterTypes array to get user character type selections, 
+then uses those selections to edit both the "possible_characters" string, 
+and the "criteria_selection_status" array*/
+function compilePC(Chartype) {
+    let status = confirm("Do you want to include "+Chartype[0]);
+    if(status == true){
+    criteria_selection_status = true;
+    possible_characters += Chartype[1];
   }
-
-  if (l_Case == false && u_Case == false && numeric == false && special == false){
-    alert("Your password must contain at least one of the following...\n\na lowercase character\nan uppercase character\na number\na special character\n\nPlease try again.");
-    return;
-  }
-
-  //generate the password
-  let possible_characters = "";
-  if(l_Case == true) possible_characters = possible_characters+lowercase
-  if(u_Case == true) possible_characters = possible_characters+uppercase
-  if(numeric == true) possible_characters = possible_characters+numbers
-  if(special == true) possible_characters = possible_characters+spec
-
-  function makeid() {
-    var text;
-    var possible_characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  
-    for (var i = 0; i < 5; i++)
-    text = possible_characters. charAt(Math. floor(Math. random() * possible_characters. length));
-    // possible_characters[Math.floor(Math.random() * possible_choices.length)];
-    return text;
-
-  }
-
-
-
-  //write the password to the page
-
-  let password = generatePassword();
-  let passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-  
-
 }
 
-// Error Handling
+//This is the main password generation function
+function gen_pass(){
+    //Get the length of the password
+    let pass_length = prompt("First, select how many characters you want your Password to have.\n\nPlease choose a number between 8 and 128");
 
+    //ERROR-HANDLING - if the length doesnt meet the criteria,prompt an error and ask again
+    while (pass_length < 8 || pass_length > 128){
+        pass_length = prompt("Error\n\nThe length must be between 8 and 128 characters long, Please Try Again");
+    }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+    //Alert the next criteria
+    alert("Next, you must select at least one of the following character types to include in your password.\n\n\nNOTE: Click \"OK\" for Yes, and \"Cancel\" for No");
 
-//allowed special characters " !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+    //Call the compilePC function to edit the set global variables
+    characterTypes.forEach(compilePC);
+
+    //ERROR-HANDLING - If at least one of the Character Types aren't selected, prompt an error and ask them to try again 
+    while (criteria_selection_status == false){
+        alert("ERROR\n\n You must select at least ONE of the following character types. Please Try Again.");
+        characterTypes.forEach(compilePC);
+    }
+
+    //Upon validation of all criteria, Generate the Password, and store it in a variable
+    let generated_password = "";
+    for (let i = 0; i < pass_length; i++){
+        generated_password += possible_characters[Math.floor(Math.random() * possible_characters.length)];
+    }
+    
+    //Reset these two global variables
+    possible_characters = "";
+    criteria_selection_status = false;
+
+    //Update the html to show the new status, the completed password, as well as new options in the button text itself
+    status_title.innerHTML = "Success! Here's your new Password.";
+    status_title.style.color = "green";
+    document.getElementById('password').innerHTML = generated_password;
+    button.innerHTML = "Generate Another?"; 
+}
+
+//Initialize javascript to run when the main button is clicked
+button.addEventListener("click", gen_pass);
