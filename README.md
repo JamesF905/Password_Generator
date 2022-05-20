@@ -16,7 +16,7 @@
   <h3 align="center">Password Generator</h3>
 
   <p align="center">
-    <a href="CHANGE TO LIVE LINK"><strong>CHANGE TO LIVE LINK</strong></a>
+    <a href="https://jamesf905.github.io/Password_Generator/"><strong>https://jamesf905.github.io/Password_Generator/</strong></a>
     <br />
     <br />
     <a href="https://www.linkedin.com/in/james-fidlin-98853a239/">linkedin</a>
@@ -27,7 +27,7 @@
 
 ## About The Project
 
-[![Password Generator][product-screenshot]](CHANGE TO LIVE LINK)
+[![Password Generator][product-screenshot]](https://jamesf905.github.io/Password_Generator/)
 
 This module's Challenge requires me to create an application that an employee can use to generate a random password based on criteria they've selected. This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript. It will have a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes. I will use concepts learned in this weeks module to help complete the task.
 
